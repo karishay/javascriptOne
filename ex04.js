@@ -1,6 +1,5 @@
-
-
-var cat = {
+var Cat = function(){
+    return {
     tiredness: 10,
     hunger: 10,
     loneliness: 10,
@@ -54,10 +53,12 @@ var cat = {
         console.log("obedience: "+this.obedience);
     },
     catShaming: function(){
+        console.log("HSSSSSSSSSS");
         this.obedience = this.obedience + 1;
         this.happiness = this.happiness - 5;
     }
 
 };
+};
 
-cat.catStatus();
+Cat.catStatus();
