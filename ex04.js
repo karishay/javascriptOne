@@ -14,13 +14,12 @@ var Cat = function(){
         if(foodType =="Human") {
             console.log("mmmmmmmm");
             this.hunger = this.hunger - 5;
-        }
-        else if(foodType =="Cat") {
+        }else if(foodType =="Cat") {
             console.log("meh");
             this.hunger = this.hunger - 1;
-        }
-        else {
+        } else {
             console.log("meow");
+            //  ;o;
         }
     },
     petting: function(){
@@ -28,8 +27,7 @@ var Cat = function(){
             console.log("purrrrrrrrr");
             this.happiness = this.happiness + 5;
             this.loneliness =  this.loneliness - 5;
-        }
-        else {
+        } else {
             console.log("HSSSSSSSSSSSSS");
             this.happiness = this.happiness - 5;
         }
