@@ -10,21 +10,21 @@ var Book = function(booktitle, genre, author, read, readdate) {
     }
 };
 
-var fiftyShadesOfJava = new Book("FiftyShadesOfJava", "Computer Erotica", "Christian Fernandez");
+var fiftyShadesOfJava = new Book("FiftyShadesOfJava", "Computer Erotica", "Christian Fernandez", "read");
 
 var HarryPotter = new Book();
 
-var PurpleHair = new Book("The Loneliest AV Club", "Autobiography", "Purple Hair Nick", true);
+var PurpleHair = new Book("The Loneliest AV Club", "Autobiography", "Purple Hair Nick", "reading");
 
 var PastFourThirty = new Book("Stretch time! With Puppies!", "Self Help", "Cynthia", false);
 
-var Underpants = new Book("Just in Time Sourcing: Underpants", "Self Help", "Underpants Nick", true, 2013);
+var Underpants = new Book("Just in Time Sourcing: Underpants", "Self Help", "Underpants Nick", "read", 2013);
 
 var AngieBook = new Book("Mentors, Field Trips and Events, Oh My!", "Autobiography", "Angie", false);
 
 var LizBookTwo = new Book("We're All Awesome");
 
-var arrayOfBooks = [fiftyShadesOfJava, HarryPotter, PurpleHair, PastFourThirty, Underpants, AngieBook, LizBookTwo];
+var arrayOfBooks = [fiftyShadesOfJava, PurpleHair, HarryPotter, PastFourThirty, Underpants, AngieBook, LizBookTwo];
 
 
 var BookList = function(aListofBooks) {
@@ -37,11 +37,20 @@ var BookList = function(aListofBooks) {
     }
 
     this.numberOfBooksNotRead = (aListofBooks.length - this.numberOfBooksRead);
-    this.nextBook= function() {
+    this.nextBook = function() {
         for (var i = 0; i < aListofBooks.length; i++){
             if (aListofBooks[i].read === false){
-                return aListofBooks[i];
-            } else {
+                return console.log("This is your next book to read: " + aListofBooks[i].booktitle);
+            } else if (i == aListofBooks.length) {
+                console.log("You've read all the books :(");
+            }
+        }
+    };
+    this.currentBook = function(){
+        for (var i = 0; i < aListofBooks.length; i++){
+            if (aListofBooks[i].read === "reading"){
+                return console.log("This is the book you are reading: " + aListofBooks[i].booktitle);
+            } else if (i == aListofBooks.length) {
                 console.log("You've read all the books :(");
             }
         }
@@ -49,7 +58,9 @@ var BookList = function(aListofBooks) {
  };
 
 var myBookList = new BookList(arrayOfBooks);
-console.log(myBookList.nextBook());
-console.log(myBookList.numberOfBooksRead);
-console.log(myBookList.numberOfBooksNotRead);
+myBookList.nextBook();
+myBookList.currentBook();
+
+// console.log(myBookList.numberOfBooksRead);
+// console.log(myBookList.numberOfBooksNotRead);
 // console.log(BookList().numberOfBooksRead);
